@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Budget Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<sector class="top">
+		<div class="wrap-budget-labels">
+			<h2 class="budget-title">Available budget in September 2008:</h2>
+			<span class="budget-label">+43,200</span>
+			<div class="wrapper-for-sum">
+				<div class="show-sum sum-inc">
+					<p>income</p>
+					<p class="digits-sum digits-sum-inc">+56.00</p>
+				</div>
+				<div class="show-sum sum-exp">
+					<p>expenses</p>
+					<div class="percentage-of-inc">1000000%</div>
+					<p  class="digits-sum digits-sum-exp" >-49.00</p>
+				</div>
+			</div>
+
+		</div>
+	</sector>
+	<sector class="control-center">
+		<select class="plus-or-minus ">
+			<option value="inc">+</option> <!-- value передам в js код -->
+			<option value="exp">-</option>
+		</select>
+		<input type="text" placeholder="Add description" class="add-description ">
+		<input type="number" placeholder="Value" class="evaluation ">
+		<button class ="add">
+			<ion-icon  name="ios-add-circle-outline"></ion-icon>
+		</button>
+	</sector>
+	<sector class="table-view">
+		<div class="wrapped-column">
+			<div class="column-title income">Increase</div>
+			<div class="column-list column-list-inc">
+				<!--
+				<div class="row-item green-border">
+					<h3>Too many wooooords</h3>
+					<button class="x-but">
+						<ion-icon class="income" name="ios-close"></ion-icon>
+					</button>
+					<span class="income">+100</span>
+				</div> -->
+			</div>
+		</div>
+		<div class="wrapped-column">
+			<div class="column-title expenses">Expenses</div>
+			<div class="column-list column-list-exp">
+				<!--
+				<div class="row-item pink-border">
+					<h3>salary</h3>
+					<button class="x-but">
+						<ion-icon class="expenses" name="ios-close"></ion-icon>
+					</button>
+					<div class="percentage-inc expenses">400%</div>
+					<span class="expenses expenses-span">-10000000</span>
+				</div> -->
+			</div>
+		</div>
+	</sector>
+	<script src="https://unpkg.com/ionicons@4.2.0/dist/ionicons.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

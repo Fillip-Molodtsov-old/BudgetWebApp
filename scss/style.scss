@@ -1,0 +1,283 @@
+@import "var";
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 'Ubuntu', sans-serif;
+	min-width: 100%;
+	height: 100%;
+}
+.top{
+	box-sizing:border-box;
+	display: block;
+	padding: 50px 0;
+	width: 100%;
+	min-height: 100px;
+	background-image:$grad, // работает только с градиентом
+	url("../img/lance-asper-152203.jpg"),;
+	background-size: cover;
+	background-position:center;
+	background-repeat: no-repeat;
+	.wrap-budget-labels{
+		display: block;
+		width: 600px;
+		margin: 0 auto;
+		text-align: center;
+		color: $w;
+		@include respond-to(lvl3){
+			width: 300px;
+		}
+		h2{
+			font-size: 20px;
+			font-weight: 300;
+		}
+		span{
+			display: inline-block;
+			font-size: 30px;
+			margin:20px 0 ;
+		}
+		.show-sum{
+			display: block;
+			max-width: 100%;
+			height: 35px;
+			padding: 15px;
+			p{
+				float:left;
+				line-height:35px;
+				text-transform:uppercase;
+			}
+			.digits-sum{
+				float:right;
+				line-height: 35px;			
+				font-size: 21px;
+				margin-right: 5px;
+			}
+			/*.digits-sum-inc{
+				float:right;
+				line-height: 0px;
+			}*/
+			.percentage-of-inc{
+				float:right;
+				display: block;
+				height:20px;
+				padding: 2.5px;
+				line-height: 20px;
+				background: $w-4;
+				margin-top: 6.5px;
+				margin-left: 10px;
+			}
+		}
+		.show-sum:first-child{
+			margin-bottom: 20px;
+		}
+		.sum-inc{
+			background:$income ;
+		}
+		.sum-exp{
+			background:$expenses ;
+		}
+	}
+}
+
+
+.control-center{
+	display: flex;
+	flex-direction:row;
+	justify-content:center;
+	flex-wrap:wrap;
+	padding: 10px 0;
+	min-height: 40px;
+	width: 100%;
+	background:$gray;
+	@include respond-to(lvl3){
+		padding:20px 10px;
+		box-sizing:border-box;
+	}
+	.plus-or-minus,input{
+		margin-right: 10px;
+	}
+	.plus-or-minus{
+		width:50px;
+		padding: 10px;
+		height: 40px;
+		outline:none;
+		border:none;
+		@include respond-to(lvl3){
+			order:2;
+		}
+	}
+	input{
+		border:none;
+		outline:none;
+		box-sizing: border-box;
+		padding-left: 10px;
+	}
+	input:focus,select:focus{
+		box-sizing:border-box;
+		border:1px solid $income;
+	}
+	.add-description{
+		height: 40px;
+		width: 300px;
+		@include respond-to(lvl3){
+			order:1;
+			width:300px;
+			clear:both;
+			margin-right: 0;
+			margin-bottom: 20px;
+		}
+	}
+	.evaluation{
+		height: 40px;
+		width: 70px;
+		@include respond-to(lvl3){
+			order:3;
+		}
+	}
+	.add{
+		cursor:pointer;
+		outline:none;
+		border:none;
+		background:transparent;
+		height: 40px;
+		color:$income;
+		width: 40px;
+		margin-top: 0;
+		@include respond-to(lvl3){
+			order:4;
+		}
+		ion-icon{
+			width: 35px;
+			height: 35px;
+			transition:margin-top .15s ease-out;
+		}
+		ion-icon:active{
+			margin-top:5px;
+		}
+	}
+	.expenses{
+	 	color:$expenses ;
+	}
+	.can-change:focus{
+		box-sizing:border-box;
+		outline:2px $expenses;
+		border:1px solid $expenses;
+	}
+}
+
+
+.table-view{
+	width:100%;
+	min-height: 100px;
+	box-sizing:border-box;
+	padding: 50px;
+	display: flex;
+	flex-direction:row;
+	justify-content:center;
+	flex-wrap:wrap;
+	@include respond-to(lvl3){
+		flex-direction: column;
+		align-items: center;
+		padding:50px 10px;
+	}
+	.wrapped-column:first-child{
+		margin-right:50px;
+		@include respond-to(lvl3){
+			margin-right: 0;
+			margin-bottom: 20px;
+		}
+	}
+	.wrapped-column{
+		width: 300px;
+		min-height: 50px;
+		@include respond-to(lvl0){
+			width: 500px;
+		}
+	}
+	.column-title{
+		font-size: 30px;
+		line-height: 60px;
+		margin-left: 10px;
+	}
+	.column-list{
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		.row-item{
+			display: block;
+			width: 100%;
+			height: 40px;
+			padding:0 10px;
+			box-sizing:border-box;
+			position: relative;
+			transition: all .5s ease-in-out;
+			h3,span{
+				line-height: 40px;
+			}
+			h3{
+				float:left;
+				font-size: 16px;
+				text-transform:capitalize;
+			}
+			span{
+				float:right;
+				font-size: 14px;
+			}
+			.expenses-span{
+				margin-right: 10px;
+			}
+			.percentage-inc{
+				display: block;
+				float:right;
+				font-size: 12px;
+				background:$expenses-4;
+				height: 18px;
+				line-height: 18px;
+				margin-top: 11.5px;
+			}
+			.x-but{
+				cursor: pointer;
+				pointer-events: none; ////////////////////////////////////////////////////////////////////может быть надо будет изменить
+				opacity:0;
+				transition: all .5s ease-in-out;
+				outline:none;
+				position: absolute;
+				right:0;
+				background:none ;
+				border: none;
+				font-size: 26px;
+				top: 7.5px;
+			}
+		}
+		.row-item:first-child{
+			background: $almost-white;
+		}
+		.row-item:hover{
+			padding-right: 30px;
+			.x-but{
+				pointer-events:auto;
+				opacity:1;
+			}
+		}
+	}
+}
+.income{
+ 	color:$income ;
+}
+.expenses{
+	color:$expenses ;
+}
+.green-border{
+	border-top: 1px solid $green-border;
+}
+.green-border:last-child{
+	border-bottom: 1px solid $green-border;
+}
+.pink-border{
+	border-top: 1px solid $pink-border;
+}
+.pink-border:last-child{
+	border-bottom: 1px solid $pink-border;
+}

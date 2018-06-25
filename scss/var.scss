@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300i,400');
+
+$b-5:rgba(black,0.5);
+$w:#fff;
+$w-4:rgba(white,0.4);
+$expenses-4:rgba(#ff5048,.4);
+$income:#50ce94;
+$expenses:#ff5048;
+$grad:linear-gradient(90deg, rgba(76,76,76,.5) 0%,rgba(19,19,19,.5) 100%);
+$gray:#ededed;
+$almost-white:#f5f5f5;
+$green-border:#95f442;
+$pink-border:#f943a4;
+
+@mixin respond-to($media) {
+  @if $media == phones {
+    @media only screen and (max-width: 480px) { @content; }
+  }
+  @else if $media == wide-phones {
+    @media all and (min-width: 480px) and (max-width: 768px) { @content; }
+  }
+  @else if $media == tablets {
+    @media all and (min-width: 768px) and (max-width: 992px) { @content; }
+  }
+  @else if $media == small-desktops {
+    @media all and (min-width: 992px) and (max-width: 1200px) { @content; }
+  }
+  @else if $media == lg-desktops {
+    @media all and (min-width: 1200px) and (max-width: 1441px) { @content; }
+  }
+  @else if $media == mlg-desktops {
+    @media all and (min-width: 1441px) and (max-width: 1599px) { @content; }
+  }
+  @else if $media == xlg-desktops {
+    @media all and (min-width: 1600px) and (max-width: 1980px) { @content; }
+  }
+  @else if $media == xxlg-desktops{
+  	@media all and (min-width:1981px) { @content; }
+  }
+  @if $media == lvl-1{
+    @media only screen and (min-width: 1441px) { @content; }
+  }
+  @if $media == lvl0{
+    @media only screen and (min-width: 1200px) { @content; }
+  }
+  @if $media == lvl1{
+    @media only screen and (max-width: 1200px) { @content; }
+  }
+  @if $media == lvl2{
+    @media only screen and (max-width: 992px) { @content; }
+  }
+  @if $media == lvl3{
+    @media only screen and (max-width: 768px) { @content; }
+  }
+}
